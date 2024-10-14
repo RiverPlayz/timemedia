@@ -1,0 +1,64 @@
+(TIP: Change the video ID below to make the video work. Line 36/37) !DELETE ME!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<a href="https://timemedia.quingbao.com/features/video-players"><img src="https://i.ibb.co/q5CYNqY/time-media-high-resolution-logo-transparent.png" alt="time-media-high-resolution-logo-transparent" border="0"></a>
+    <title>Custom Vimeo Player</title>
+    <style>
+        #video-container {
+            position: relative;
+            width: 640px; /* Set the width you want */
+            height: 360px; /* Set the height you want */
+            overflow: hidden;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            margin: 0 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="video-container">
+    <iframe id="vimeo-player" src="https://player.vimeo.com/video/(vimeo video id here)?background=1&muted=1&controls=0" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+
+<div id="controls">
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+</div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+    const iframe = document.getElementById('vimeo-player');
+    const player = new Vimeo.Player(iframe);
+
+    document.getElementById('play').addEventListener('click', function() {
+        player.play().catch(function(error) {
+            console.error('Error playing the video:', error);
+        });
+    });
+
+    document.getElementById('pause').addEventListener('click', function() {
+        player.pause().catch(function(error) {
+            console.error('Error pausing the video:', error);
+        });
+    });
+</script>
+
+</body>
+</html>
